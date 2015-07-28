@@ -10,7 +10,7 @@ CPUVInf is a tiny, simple and useful diagnostics tool for the Raspberry Pi minic
 <li>Ubuntu MATE</li>
 <li>Snappy Ubuntu Core</li>
 <li>Media center Distros with access to console based on one of the above listed OS
-</ul><br /><br /><br />
+</ul><br /><br />
 <B>Features:</B><br /><br />
 <U>CPU & GPU Temperature</U><br />
 Reading of CPU and GPU temperature from the hardware sensors. Conversion of the output into °F/°C values.
