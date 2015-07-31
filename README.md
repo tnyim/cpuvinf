@@ -20,4 +20,10 @@ CPUVInf can retrieve the minimum, maximum and current CPU and GPU clocks. Moreov
 System Voltages<br />
 CPUVInf is capable of reading various system voltages and converting the output into Volt values. Voltage types: core, SDRAM core, SDRAM I/O and SDRAM PHY voltages.<br /><br />
 Memory Split<br />
-CPUVInf can display the assigned RAM for the internal GPU and system RAM (usable RAM) in MB values.<br />
+CPUVInf can display the assigned RAM for the internal GPU and system RAM (usable RAM) in MB values.<br /><br /><br />
+<B>Usage</B><br /><br />
+CPU & GPU Temperature<br />
+<pre>cpuvinf -t 
+or
+cpuvinf --temperature
+</pre>
