@@ -26,4 +26,31 @@ CPU & GPU Temperature<br />
 <pre>cpuvinf -t 
 or
 cpuvinf --temperature
-</pre>
+</pre><br />
+Screenshot: https://cpuvinf.tny.im/wp-content/uploads/2015/04/temp11.png<br /><br />
+CPU & GPU Clocks<br />
+<pre>cpuvinf -c
+or
+cpuvinf --clocks
+</pre></br >
+Screenshot: https://cpuvinf.tny.im/wp-content/uploads/2015/04/clock11.png<br /><br />
+System Voltages<br />
+<pre>cpuvinf -v
+or
+cpuvinf --voltages
+</pre><br />
+Screenshot: https://cpuvinf.tny.im/wp-content/uploads/2015/04/voltages11.png<br /><br />
+Memory Split<br />
+<pre>cpuvinf -m
+or 
+cpuvinf --memory
+</pre><br />
+Screenshot: https://cpuvinf.tny.im/wp-content/uploads/2015/04/memory11.png<br />
+Everything at once<br />
+<pre>cpuvinf -a
+or
+cpuvinf --all
+</pre><br />
+Screenshot: https://cpuvinf.tny.im/wp-content/uploads/2015/04/all11.png<br /><br /><br />
+<B>CPUVInf is licensed under the GNU GPL 3 license.<br />
+CPUVInf is part of the <a href="https://i.tny.im/">tny. internet media</a> group and it’s projects.</B>
