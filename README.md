@@ -17,3 +17,7 @@ CPU & GPU Temperature<br />
 CPUVInf can read CPU and GPU temperatures from the hardware sensors. Conversion of the sensor output is done into °F/°C values.<br /><br />
 CPU & GPU Clocks<br />
 CPUVInf can retrieve the minimum, maximum and current CPU and GPU clocks. Moreover it is also possible to retrieve the CPU governer. Output is converted into MHz values.<br /><br />
+System Voltages<br />
+CPUVInf is capable of reading various system voltages and converting the output into Volt values. Voltage types: core, SDRAM core, SDRAM I/O and SDRAM PHY voltages.<br /><br />
+Memory Split<br />
+CPUVInf can display the assigned RAM for the internal GPU and system RAM (usable RAM) in MB values.<br />
