@@ -1,0 +1,141 @@
+#!/bin/bash
+
+###################################################
+# CPUVInf 1.1 - Raspberry Pi Diagnostics Tool     #
+# Homepage: https://cpuvinf.tny.im/               #
+# Copyright© 2014 - 2015 by Hidden-Refuge         #
+# License: GNU GPL 3                              #
+# https://www.gnu.org/licenses/gpl.html           #
+###################################################
+# A tny. internet media group driven project      #
+# Visit us at https://i.tny.im/                   #
+# Copyright© 2011 - 2015 by tny. internet media   #
+###################################################
+
+# Current CPU/GPU temperatures in Celsius and Fa-
+# renheit
+temp ()	{
+   tempc=$( awk '{printf "%3.1f°C\n", $1/1000}' /sys/class/thermal/thermal_zone0/temp )
+   tempf=$( awk '{printf "%3.1f°F\n", $1/1000*9/5+32}' /sys/class/thermal/thermal_zone0/temp )
+   echo ""
+   echo "CPU/GPU Temperature"
+   echo ""
+   echo "Celsius (°C): $tempc"
+   echo "Fahrenheit (°F): $tempf "
+   echo ""
+}
+
+# CPU/GPU frequencies in MHz and CPU governor
+clock ()	{
+   mintmp=$( cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq )
+   maxtmp=$( cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq )
+   curtmp=$( cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq )
+   gov=$( cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor )
+   gputmp=$( /opt/vc/bin/vcgencmd measure_clock core | sed -r 's/^.{13}//' )
+   minfreq=$( expr $mintmp / 1000 )
+   maxfreq=$( expr $maxtmp / 1000 )
+   curfreq=$( expr $curtmp / 1000 )
+   gpu=$( expr $gputmp / 1000000 )
+   echo ""
+   echo "CPU/GPU Frequencies & CPU Governor"
+   echo ""
+   echo "Minimum CPU Clock: $minfreq MHz"
+   echo "Maximum CPU Clock: $maxfreq MHz"
+   echo "Current CPU Clock: $curfreq MHz"
+   echo "Current GPU Clock: $gpu MHz"
+   echo "CPU Governor: $gov"
+   echo ""
+}
+
+# System voltages in Volt (Core, SDRAM, etc...)
+volt ()	{
+   vcore=$( /opt/vc/bin/vcgencmd measure_volts core | sed 's/volt=//' )
+   vsdramcore=$( /opt/vc/bin/vcgencmd measure_volts sdram_c | sed 's/volt=//' )
+   vsdramio=$( /opt/vc/bin/vcgencmd measure_volts sdram_i | sed 's/volt=//' )
+   vsdramphy=$( /opt/vc/bin/vcgencmd measure_volts sdram_p | sed 's/volt=//' )
+   echo ""
+   echo "System Voltages"
+   echo ""
+   echo "Core Voltage: $vcore"
+   echo "SDRAM Core Voltage: $vsdramcore "
+   echo "SDRAM I/O Voltage: $vsdramio"
+   echo "SDRAM PHY Voltage: $vsdramphy"
+   echo ""
+}
+
+# Memorysplit for system usable RAM and GPU
+# usable RAM
+memorysplit ()	{
+   systemram=$( /opt/vc/bin/vcgencmd get_mem arm | sed -r 's/^.{4}//' )
+   gpuram=$( /opt/vc/bin/vcgencmd get_mem gpu | sed -r 's/^.{4}//')
+   echo ""
+   echo "Memorysplit"
+   echo ""
+   echo "System RAM: "$systemram"B"
+   echo "GPU RAM: "$gpuram"B"
+   echo""
+}
+
+# Help
+help ()	{
+	echo ""
+	echo "cpuvinf 1.1 by Hidden Refuge <hiddenrefuge at singul4rity dot com>"
+	echo ""
+    echo "Usage: cpuvinf <option>"
+	echo ""
+	echo "Available options:"
+	echo "-t, --temperature	Displays CPU/GPU temperature in °C/°F."
+	echo "-c, --clocks		Displays CPU/GPU clocks in MHz and CPU governor."
+	echo "-v, --voltages		Displays voltages of the core and SDRAM."
+	echo "-m, --memory		Displays the assigned memory amount for the GPU and the system."
+	echo "-a, --all		Displays all the things above at once."
+	echo ""
+	echo "Unfortunately CPUVInf has no man page :("
+	echo ""
+}
+
+# Option selection (short and long parameters)
+case $1 in
+    '-t')
+       	temp;;
+	'--temperature')
+		temp;;
+	'-c')
+		clock;;
+	'--clocks')
+		clock;;
+    '-v')
+        volt;;
+	'--voltages')
+		volt;;
+	'-m')
+		memorysplit;;
+	'--memory')
+		memorysplit;;
+	'-a')
+		temp; clock; volt; memorysplit;;
+	'--all')
+		temp; clock; volt; memorysplit;;
+	'-h')
+		help;;
+    '--help')
+		help;;
+	*)
+		echo ""
+		echo "cpuvinf: Empty or invalid option!"
+		echo "Try 'cpuvinf -h' or 'cpuvinf --help' for more information."
+		echo "";;
+esac
+
+###################################################
+# Support such as mirrors for CPUVInf and other   #
+# help is welcome. Donations are optional and up  #
+# to yourself. Hardware, domains and SSL cert-    #
+# ificates are paid out of my own pocket and/or   #
+# the funds of the tny. internet media group.     #
+###################################################
+# Visit https://cpuvinf.tny.im/contact/ to cont-  #
+# act me/us regarding any kind of help for the    #
+# project and/or any kind of feedback or suggest- #
+# ions/questions.                                 #
+###################################################
