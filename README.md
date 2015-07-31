@@ -11,6 +11,8 @@ CPUVInf is a tiny, simple and useful diagnostics tool for the Raspberry Pi minic
 <li>Snappy Ubuntu Core</li>
 <li>Media center Distros with access to console based on one of the above listed OS
 </ul><br /><br />
-<B>Features:</B><br /><br />
-<U>CPU & GPU Temperature</U><br />
-Reading of CPU and GPU temperature from the hardware sensors. Conversion of the output into °F/°C values.
+<B>Features: https://cpuvinf.tny.im/about/</B><br /><br />
+CPU & GPU Temperature<br />
+CPUVInf can read CPU and GPU temperatures from the hardware sensors. Conversion of the sensor output is done into °F/°C values.<br /><br />
+CPU & GPU Clocks<br />
+CPUVInf can retrieve the minimum, maximum and current CPU and GPU clocks. Moreover it is also possible to retrieve the CPU govern. Output is converted into MHz values.<br /><br />
