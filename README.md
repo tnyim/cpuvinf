@@ -1,6 +1,6 @@
 # cpuvinf 1.1
 CPUVInf - Raspberry Pi Diagnostics Tool<br />
-Homepage: https://cpuvinf.tny.im/ or just http://cpuvinf.eu.org/ (redirect to first URL)<br /><br /><br />
+Homepage: https://cpuvinf.tny.im/ or https://cpuvinf.eu.org/ <br /><br /><br />
 <B>What is CPUVINF?</B><br /><br />
 CPUVInf is a tiny, simple and useful diagnostics tool for the Raspberry Pi minicomputer series written purely in shell scripting language. It is compatible with all Raspberry Pi 1 and all Raspberry Pi 2 minicomputers and therefore with all available Linux based operating systems for the Raspberry Pi series. It started off as a small script to read CPU temperature and voltage but has become much more than that.<br /><br /><br />
 <B>Full list of compatible OS:</B>
