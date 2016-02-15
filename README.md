@@ -53,4 +53,4 @@ cpuvinf --all
 </pre>
 Screenshot: https://cpuvinf.eu.org/cpuvinf.tny.im/wp-content/uploads/2015/04/all11.png<br /><br /><br />
 <B>CPUVInf is licensed under the GNU GPL 3 license.<br />
-CPUVInf is part of the <a href="https://i.tny.im/">tny. internet media</a> group and its projects.</B>
+Part of <a href="https://i.tny.im/"><img src="https://tny.im/tnyimimages/tny-line-16.png" alt="TNY Network"></a></B>
