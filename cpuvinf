@@ -7,9 +7,9 @@
 # License: GNU GPL 3                              #
 # https://www.gnu.org/licenses/gpl.html           #
 ###################################################
-# A tny. internet media group driven project      #
+# A TNY Network driven project                    #
 # Visit us at https://i.tny.im/                   #
-# Copyright© 2011 - 2016 by tny. internet media   #
+# Copyright© 2011 - 2016 by TNY Network           #
 ###################################################
 
 # Current CPU/GPU temperatures in Celsius and Fa-
@@ -79,7 +79,7 @@ memorysplit ()	{
 # Help
 help ()	{
 	echo ""
-	echo "cpuvinf 1.1 by Hidden Refuge <hiddenrefuge at singul4rity dot com>"
+	echo "cpuvinf 1.1 by Hidden Refuge <me at hiddenrefuge dot eu dot org>"
 	echo ""
     echo "Usage: cpuvinf <option>"
 	echo ""
