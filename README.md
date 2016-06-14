@@ -27,30 +27,30 @@ CPU & GPU Temperature<br />
 or
 cpuvinf --temperature
 </pre>
-Screenshot: https://cpuvinf.eu.org/cpuvinf.tny.im/wp-content/uploads/2015/04/temp11.png<br /><br />
+Screenshot: https://cpuvinf-cdn.hiddenrefuge.eu.org/images/temp11.png<br /><br />
 CPU & GPU Clocks<br />
 <pre>cpuvinf -c
 or
 cpuvinf --clocks
 </pre>
-Screenshot: https://cpuvinf.eu.org/cpuvinf.tny.im/wp-content/uploads/2015/04/clock11.png<br /><br />
+Screenshot: https://cpuvinf-cdn.hiddenrefuge.eu.org/images/clock11.png<br /><br />
 System Voltages<br />
 <pre>cpuvinf -v
 or
 cpuvinf --voltages
 </pre>
-Screenshot: https://cpuvinf.eu.org/cpuvinf.tny.im/wp-content/uploads/2015/04/voltages11.png<br /><br />
+Screenshot: https://cpuvinf-cdn.hiddenrefuge.eu.org/images/voltages11.png<br /><br />
 Memory Split<br />
 <pre>cpuvinf -m
 or 
 cpuvinf --memory
 </pre>
-Screenshot: https://cpuvinf.eu.org/cpuvinf.tny.im/wp-content/uploads/2015/04/memory11.png<br /><br />
+Screenshot: https://cpuvinf-cdn.hiddenrefuge.eu.org/images/memory11.png<br /><br />
 Everything at once<br />
 <pre>cpuvinf -a
 or
 cpuvinf --all
 </pre>
-Screenshot: https://cpuvinf.eu.org/cpuvinf.tny.im/wp-content/uploads/2015/04/all11.png<br /><br /><br />
+Screenshot: https://cpuvinf-cdn.hiddenrefuge.eu.org/images/all11.png<br /><br /><br />
 <B>CPUVInf is licensed under the GNU GPL 3 license.<br />
 Part of <a href="https://i.tny.im/"><img src="https://tny.im/tnyimimages/tny-line-16.png" alt="TNY Network"></a></B>
