@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ###################################################
-# CPUVInf 1.1 - Raspberry Pi Diagnostics Tool     #
-# Homepage: https://cpuvinf.tny.im/               #
+# CPUVInf 1.2 - Raspberry Pi Diagnostics Tool     #
+# Homepage: https://cpuvinf.eu.org/               #
 # Copyright© 2014 - 2017 by Hidden-Refuge         #
 # License: GNU GPL 3                              #
 # https://www.gnu.org/licenses/gpl.html           #
@@ -79,7 +79,7 @@ memorysplit ()	{
 # Help
 help ()	{
 	echo ""
-	echo "cpuvinf 1.1 by Hidden Refuge <me at hiddenrefuge dot eu dot org>"
+	echo "cpuvinf 1.2 by Hidden Refuge <me at hiddenrefuge dot eu dot org>"
 	echo ""
     echo "Usage: cpuvinf <option>"
 	echo ""
