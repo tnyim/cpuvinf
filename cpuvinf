@@ -3,13 +3,13 @@
 ###################################################
 # CPUVInf 1.1 - Raspberry Pi Diagnostics Tool     #
 # Homepage: https://cpuvinf.tny.im/               #
-# Copyright© 2014 - 2016 by Hidden-Refuge         #
+# Copyright© 2014 - 2017 by Hidden-Refuge         #
 # License: GNU GPL 3                              #
 # https://www.gnu.org/licenses/gpl.html           #
 ###################################################
 # A TNY Network driven project                    #
 # Visit us at https://i.tny.im/                   #
-# Copyright© 2011 - 2016 by TNY Network           #
+# Copyright© 2011 - 2017 by TNY Network           #
 ###################################################
 
 # Current CPU/GPU temperatures in Celsius and Fa-
@@ -126,16 +126,3 @@ case $1 in
 		echo "Try 'cpuvinf -h' or 'cpuvinf --help' for more information."
 		echo "";;
 esac
-
-###################################################
-# Support such as mirrors for CPUVInf and other   #
-# help is welcome. Donations are optional and up  #
-# to yourself. Hardware, domains and SSL cert-    #
-# ificates are paid out of my own pocket and/or   #
-# the funds of the tny. internet media group.     #
-###################################################
-# Visit https://cpuvinf.tny.im/contact/ to cont-  #
-# act me/us regarding any kind of help for the    #
-# project and/or any kind of feedback or suggest- #
-# ions/questions.                                 #
-###################################################
