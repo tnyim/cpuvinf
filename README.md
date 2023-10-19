@@ -21,9 +21,9 @@ CPUVInf is capable of reading various system voltages and converting the output 
 Memory Split<br />
 CPUVInf can display the assigned RAM for the internal GPU and system RAM (usable RAM) in MB values.<br /><br /><br />
 <B>Installation<B><br /><br />
-1. Clone: `git clone https://github.com/tnyim/cpuvinf.git`<br />
-2. Make executable: `cd cpuvinf && chmod +x ./cpuvinf`<br />
-3. Move to system directory: `sudo mv ./cpuvinf /usr/bin`<br />
+1. Clone: <pre>git clone https://github.com/tnyim/cpuvinf.git</pre><br />
+2. Make executable: <pre>cd cpuvinf && chmod +x ./cpuvinf</pre><br />
+3. Move to system directory: <pre>sudo mv ./cpuvinf /usr/bin</pre><br />
 <br /><br />
 <B>Usage</B><br /><br />
 CPU & GPU Temperature<br />
