@@ -1,6 +1,6 @@
-# cpuvinf 1.2
+# cpuvinf 1.3
 CPUVInf - Raspberry Pi Diagnostics Tool<br /><br /><br />
-<B>What is CPUVINF?</B><br /><br />
+<B>What is CPUVInf?</B><br /><br />
 CPUVInf is a tiny, simple and useful diagnostics tool for the Raspberry Pi minicomputer series written purely in shell scripting language. It is compatible with all Raspberry Pi 1 and all Raspberry Pi 2 minicomputers and therefore with all available Linux based operating systems for the Raspberry Pi series. It started off as a small script to read CPU temperature and voltage but has become much more than that.<br /><br /><br />
 <B>Full list of compatible OS:</B>
 <ul>
@@ -20,6 +20,11 @@ System Voltages<br />
 CPUVInf is capable of reading various system voltages and converting the output into Volt values. Voltage types: core, SDRAM core, SDRAM I/O and SDRAM PHY voltages.<br /><br />
 Memory Split<br />
 CPUVInf can display the assigned RAM for the internal GPU and system RAM (usable RAM) in MB values.<br /><br /><br />
+<B>Installation<B><br /><br />
+1. Clone: <pre>git clone https://github.com/tnyim/cpuvinf.git</pre><br />
+2. Make executable: <pre>cd cpuvinf && chmod +x ./cpuvinf</pre><br />
+3. Move to system directory: <pre>sudo mv ./cpuvinf /usr/bin</pre><br />
+<br /><br />
 <B>Usage</B><br /><br />
 CPU & GPU Temperature<br />
 <pre>cpuvinf -t 
