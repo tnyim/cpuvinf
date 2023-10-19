@@ -1,19 +1,27 @@
-#!/bin/bash
+#!/bin/env bash
 
 ###################################################
-# CPUVInf 1.2 - Raspberry Pi Diagnostics Tool     #
-# Copyright© 2014 - 2017 by Hidden-Refuge         #
+# CPUVInf 1.3 - Raspberry Pi Diagnostics Tool     #
+# Copyright© 2014 - 2023 by Hidden-Refuge         #
 # License: GNU GPL 3                              #
 # https://www.gnu.org/licenses/gpl.html           #
 ###################################################
 # A TNY Network driven project                    #
 # Visit us at https://i.tny.im/                   #
-# Copyright© 2011 - 2017 by TNY Network           #
+# Copyright© 2011 - 2023 by TNY Network           #
 ###################################################
+
+# Test vcgencmd; depending on the configuraton, a 32-bit binary may be present
+# in /opt/vc/bin on a 64-bit system. An appropriate one is probably in /usr/bin.
+_vcgencmd=$( command -v vcgencmd )
+if [ -z "$_vcgencmd" ] || ! $_vcgencmd commands >/dev/null 2>&1; then
+  echo -e "\x1b[31mcpuvinf: error: unable to execute vcgencmd; please check your configuration\x1b[0m"
+  exit 1
+fi
 
 # Current CPU/GPU temperatures in Celsius and Fa-
 # renheit
-temp ()	{
+temp ()  {
    tempc=$( awk '{printf "%3.1f°C\n", $1/1000}' /sys/class/thermal/thermal_zone0/temp )
    tempf=$( awk '{printf "%3.1f°F\n", $1/1000*9/5+32}' /sys/class/thermal/thermal_zone0/temp )
    echo ""
@@ -25,12 +33,12 @@ temp ()	{
 }
 
 # CPU/GPU frequencies in MHz and CPU governor
-clock ()	{
+clock () {
    mintmp=$( cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq )
    maxtmp=$( cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq )
    curtmp=$( cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq )
    gov=$( cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor )
-   gputmp=$( /opt/vc/bin/vcgencmd measure_clock core | sed -r 's/^.{13}//' )
+   gputmp=$( $_vcgencmd measure_clock core | sed -r 's/^.{13}//' )
    minfreq=$( expr $mintmp / 1000 )
    maxfreq=$( expr $maxtmp / 1000 )
    curfreq=$( expr $curtmp / 1000 )
@@ -47,11 +55,11 @@ clock ()	{
 }
 
 # System voltages in Volt (Core, SDRAM, etc...)
-volt ()	{
-   vcore=$( /opt/vc/bin/vcgencmd measure_volts core | sed 's/volt=//' )
-   vsdramcore=$( /opt/vc/bin/vcgencmd measure_volts sdram_c | sed 's/volt=//' )
-   vsdramio=$( /opt/vc/bin/vcgencmd measure_volts sdram_i | sed 's/volt=//' )
-   vsdramphy=$( /opt/vc/bin/vcgencmd measure_volts sdram_p | sed 's/volt=//' )
+volt ()  {
+   vcore=$( $_vcgencmd measure_volts core | sed 's/volt=//' )
+   vsdramcore=$( $_vcgencmd measure_volts sdram_c | sed 's/volt=//' )
+   vsdramio=$( $_vcgencmd measure_volts sdram_i | sed 's/volt=//' )
+   vsdramphy=$( $_vcgencmd measure_volts sdram_p | sed 's/volt=//' )
    echo ""
    echo "System Voltages"
    echo ""
@@ -64,9 +72,9 @@ volt ()	{
 
 # Memorysplit for system usable RAM and GPU
 # usable RAM
-memorysplit ()	{
-   systemram=$( /opt/vc/bin/vcgencmd get_mem arm | sed -r 's/^.{4}//' )
-   gpuram=$( /opt/vc/bin/vcgencmd get_mem gpu | sed -r 's/^.{4}//')
+memorysplit () {
+   systemram=$( $_vcgencmd get_mem arm | sed -r 's/^.{4}//' )
+   gpuram=$( $_vcgencmd get_mem gpu | sed -r 's/^.{4}//')
    echo ""
    echo "Memorysplit"
    echo ""
@@ -76,52 +84,52 @@ memorysplit ()	{
 }
 
 # Help
-help ()	{
-	echo ""
-	echo "cpuvinf 1.2 by Hidden Refuge <me at hiddenrefuge dot eu dot org>"
-	echo ""
+help ()  {
+   echo ""
+   echo "cpuvinf 1.3 by Hidden Refuge <me at hiddenrefuge dot eu dot org>"
+   echo ""
     echo "Usage: cpuvinf <option>"
-	echo ""
-	echo "Available options:"
-	echo "-t, --temperature	Displays CPU/GPU temperature in °C/°F."
-	echo "-c, --clocks		Displays CPU/GPU clocks in MHz and CPU governor."
-	echo "-v, --voltages		Displays voltages of the core and SDRAM."
-	echo "-m, --memory		Displays the assigned memory amount for the GPU and the system."
-	echo "-a, --all		Displays all the things above at once."
-	echo ""
-	echo "Unfortunately CPUVInf has no man page :("
-	echo ""
+   echo ""
+   echo "Available options:"
+   echo "-t, --temperature Displays CPU/GPU temperature in °C/°F."
+   echo "-c, --clocks      Displays CPU/GPU clocks in MHz and CPU governor."
+   echo "-v, --voltages    Displays voltages of the core and SDRAM."
+   echo "-m, --memory      Displays the assigned memory amount for the GPU and the system."
+   echo "-a, --all      Displays all the things above at once."
+   echo ""
+   echo "Unfortunately CPUVInf has no man page :("
+   echo ""
 }
 
 # Option selection (short and long parameters)
 case $1 in
     '-t')
-       	temp;;
-	'--temperature')
-		temp;;
-	'-c')
-		clock;;
-	'--clocks')
-		clock;;
+         temp;;
+   '--temperature')
+      temp;;
+   '-c')
+      clock;;
+   '--clocks')
+      clock;;
     '-v')
         volt;;
-	'--voltages')
-		volt;;
-	'-m')
-		memorysplit;;
-	'--memory')
-		memorysplit;;
-	'-a')
-		temp; clock; volt; memorysplit;;
-	'--all')
-		temp; clock; volt; memorysplit;;
-	'-h')
-		help;;
+   '--voltages')
+      volt;;
+   '-m')
+      memorysplit;;
+   '--memory')
+      memorysplit;;
+   '-a')
+      temp; clock; volt; memorysplit;;
+   '--all')
+      temp; clock; volt; memorysplit;;
+   '-h')
+      help;;
     '--help')
-		help;;
-	*)
-		echo ""
-		echo "cpuvinf: Empty or invalid option!"
-		echo "Try 'cpuvinf -h' or 'cpuvinf --help' for more information."
-		echo "";;
+      help;;
+   *)
+      echo ""
+      echo "cpuvinf: Empty or invalid option!"
+      echo "Try 'cpuvinf -h' or 'cpuvinf --help' for more information."
+      echo "";;
 esac
